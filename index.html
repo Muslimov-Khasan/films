@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Document</title>
+</head>
+<body>
+  <div class="container">
+      <form class="form">
+    <select class="film__select">
+    </select>
+    <button class="btn bg-primary text-white" type="submit">Submit</button>
+  </form>
+  <ul class="film__list d-flex flex-wrap mt-3 list-unstyled justify-content-around"></ul>
+  
+  <template id="film__template">
+    <li class="film__item w-25">     
+      <img class="film__img" src="" alt="" width="250"/>
+      <h3 class="film__title"></h3>
+      <p class="film__text w-75"></p>
+      <time class="film__time"></time>
+      <p class="film__second__list"> 
+    </p>
+    </li>
+  </template>
+  </div>
+
+    <script src="./js/films.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
