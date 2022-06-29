@@ -1,4 +1,3 @@
-"use strict";
 const genreArray = [];
 const bookmarksArr = JSON.parse(window.localStorage.getItem("bookmarks")) || [];
 
