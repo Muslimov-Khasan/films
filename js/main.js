@@ -1,34 +1,35 @@
-let genreArray = [];
-let bookmarksArr = JSON.parse(window.localStorage.getItem("bookmarks")) || [];
+"use strict";
+const genreArray = [];
+const bookmarksArr = JSON.parse(window.localStorage.getItem("bookmarks")) || [];
 
 // Elements
-let searchForm = document.querySelector(".js-form");
+const searchForm = document.querySelector(".js-form");
 
-let movieList = document.querySelector(".movies__list");
-let genresSelect = document.querySelector(".genres-select");
-let searchInput = document.querySelector(".js-input");
+const movieList = document.querySelector(".movies__list");
+const genresSelect = document.querySelector(".genres-select");
+const searchInput = document.querySelector(".js-input");
 
-let bookmarksList = document.querySelector(".bookmark-list");
+const bookmarksList = document.querySelector(".bookmark-list");
 
 // Movie Info Modal
-let modal = document.querySelector(".modal");
-let modalCloseBtn = document.querySelector(".modal__btn");
+const modal = document.querySelector(".modal");
+const modalCloseBtn = document.querySelector(".modal__btn");
 
 // Movie Bookmark Modal
-let bookmarkBtn = document.querySelector(".bookmarks__btn");
-let bookmarkModal = document.querySelector(".bookmark-modal");
+const bookmarkBtn = document.querySelector(".bookmarks__btn");
+const bookmarkModal = document.querySelector(".bookmark-modal");
 
 
 // Movie Template
-let movieTemplate = document.querySelector("#movie-template").content;
+const movieTemplate = document.querySelector("#movie-template").content;
 
 // Get Hour Function
 function normalizeDate (dateFormat) {
 
-  let date = new Date (dateFormat);
-  let day = String(date.getDate()).padStart(2, 0);
-  let month = String(date.getMonth() + 1).padStart(2, 0);
-  let year = String(date.getFullYear()).padStart(2, 0);
+  const date = new Date (dateFormat);
+  const day = String(date.getDate()).padStart(2, 0);
+  const month = String(date.getMonth() + 1).padStart(2, 0);
+  const year = String(date.getFullYear()).padStart(2, 0);
 
   return (day + '.' + month + '.' + year);
 }
@@ -37,7 +38,7 @@ function getMovieGenre(genre) {
   if (!genreArray.includes(genre)) {
     genreArray.push(genre);
 
-    let genreOption = document.createElement("option");
+    const genreOption = document.createElement("option");
     genreOption.textContent = genre;
     genreOption.value = genre;
 
@@ -47,14 +48,14 @@ function getMovieGenre(genre) {
 
 // Create New Movie Element
 function createMovie(movie) {
-  let elMovie = movieTemplate.cloneNode(true);
+  const elMovie = movieTemplate.cloneNode(true);
 
   elMovie.querySelector(".movie-img").src = movie.poster;
   elMovie.querySelector(".movie-img").width = "300";
   elMovie.querySelector(".movie-title").textContent = movie.title;
 
   movie.genres.forEach((genre) => {
-    let newGenreLi = document.createElement("li");
+    const newGenreLi = document.createElement("li");
 
     newGenreLi.textContent = genre;
     elMovie.querySelector(".genre-list").appendChild(newGenreLi);
@@ -75,12 +76,12 @@ function searchMovie(evt) {
 
   movieList.innerHTML = null;
 
-  let genreValue = genresSelect.value;
-  let searchValue = searchInput.value.trim();
+  const genreValue = genresSelect.value;
+  const searchValue = searchInput.value.trim();
   searchInput.value = null;
-  let newRegExp = new RegExp(searchValue, "gi");
+  const newRegExp = new RegExp(searchValue, "gi");
 
-  let foundFilms = films
+  const foundFilms = films
     .filter((kino) => {
       if (genreValue === "All") {
         return kino;
@@ -101,8 +102,8 @@ films.forEach((film) => {
   createMovie(film);
 });
 
-let bookmarkTemplate = document.querySelector(".bookmark-template").content;
-let bookmarksFragment = document.createDocumentFragment();
+const bookmarkTemplate = document.querySelector(".bookmark-template").content;
+const bookmarksFragment = document.createDocumentFragment();
 
 function renderBookmarks(bookmarkMovie) {
   elBookmark = bookmarkTemplate.cloneNode(true);
@@ -119,7 +120,7 @@ movieList.addEventListener("click", function (evt) {
   if (evt.target.matches(".item-btn")) {
     modal.classList.add("modal__open");
 
-    let foundMovie = films.find((movie) => movie.id === evt.target.dataset.id);
+    const foundMovie = films.find((movie) => movie.id === evt.target.dataset.id);
 
     modal.querySelector(".modal__title").textContent = foundMovie.title;
     modal.querySelector(".modal__text").textContent = foundMovie.overview;
@@ -143,7 +144,7 @@ movieList.addEventListener("click", function (evt) {
   }
 
   if (evt.target.matches(".bookmark-btn")) {
-    let foundMovie = films.find((movie) => movie.id === evt.target.dataset.id);
+    const foundMovie = films.find((movie) => movie.id === evt.target.dataset.id);
     if (!bookmarksArr.includes(foundMovie)) {
       bookmarksArr.push(foundMovie);
 
@@ -175,7 +176,7 @@ bookmarkBtn.addEventListener("click", function () {
 // Remove Bookmark
 bookmarksList.addEventListener("click", function (evt) {
   if (evt.target.matches(".remove-btn")) {
-    let foundIndex = bookmarksArr.findIndex(
+    const foundIndex = bookmarksArr.findIndex(
       (item) => item.id === evt.target.dataset.id
     );
 
