@@ -9,26 +9,66 @@
     <title>Document</title>
 </head>
 <body>
-  <div class="container">
-      <form class="form">
-    <select class="film__select">
-    </select>
-    <button class="btn bg-primary text-white" type="submit">Submit</button>
-  </form>
-  <ul class="film__list d-flex flex-wrap mt-3 list-unstyled justify-content-around"></ul>
-  
-  <template id="film__template">
-    <li class="film__item w-25">     
-      <img class="film__img" src="" alt="" width="250"/>
-      <h3 class="film__title"></h3>
-      <p class="film__text w-75"></p>
-      <time class="film__time"></time>
-      <p class="film__second__list"> 
-    </p>
-    </li>
-  </template>
+  <section class="movies">
+    <div class="container">
+      <div class="movie-wrapper">
+        <h1 class="movies__heading text-center">Movies</h1>
+        <button type="submit" class="bookmarks__btn btn btn-danger">Bookmarks</button>
+      </div>
+
+      <form class="js-form">
+        <select class="genres-select">
+          <option>All</option>
+        </select>
+        <input
+          class="js-input"
+          type="text"
+          placeholder="search..."
+        />
+
+        <button type="submit" class="form__btn">search</button>
+      </form>
+
+      <ul class="movies__list d-flex flex-wrap list-unstyled" data-id="salom"></ul>
+    </div>
+  </section>
+
+  <!-- Movie Info Modal -->
+  <div class="modal">
+    <div class="modal__content">
+      <h3 class="modal__title"></h3>
+      <p class="modal__text"></p>
+      <button class="modal__btn">&times;</button>
+    </div>
   </div>
 
+  <!-- Movie Bookmark Modal -->
+  <div class="bookmark-modal">
+    <div class="bookmark-modal-content">
+      <h2>Bookmarks</h2>
+      <ul class="bookmark-list"></ul>
+    </div>
+  </div>
+
+  <template id="movie-template">
+    <li class="movies__list-item">
+      <img class="movie-img" src="" />
+      <div class="movies__list-item-content">
+        <h3 class="movie-title">Film titles</h3>
+        <ul class="genre-list"></ul>
+        <span class="movie-year"></span>
+        <button class="item-btn btn-primary">More</button>
+        <button class="bookmark-btn btn-danger">Bookmark</button>
+      </div>
+    </li>
+  </template>
+
+  <template class="bookmark-template">
+    <li class="bookmark-item">
+          <h3 class="movie-name"></h3>
+          <button class="remove-btn btn-danger">Delete</button>
+        </li>
+  </template>
     <script src="./js/films.js"></script>
     <script src="./js/main.js"></script>
 </body>
