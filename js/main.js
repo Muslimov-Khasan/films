@@ -18,6 +18,7 @@ let modalCloseBtn = document.querySelector(".modal__btn");
 let bookmarkBtn = document.querySelector(".bookmarks__btn");
 let bookmarkModal = document.querySelector(".bookmark-modal");
 
+
 // Movie Template
 let movieTemplate = document.querySelector("#movie-template").content;
 
