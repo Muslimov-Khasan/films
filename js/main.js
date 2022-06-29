@@ -1,4 +1,3 @@
-"use strict";
 let genreArray = [];
 let bookmarksArr = JSON.parse(window.localStorage.getItem("bookmarks")) || [];
 
