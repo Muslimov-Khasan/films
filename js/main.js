@@ -115,7 +115,7 @@ function renderBookmarks(bookmarkMovie) {
 
 searchForm.addEventListener("submit", searchMovie);
 
-movieList.addEventListener("click", function (evt) {
+movieList.addEventListener("click", (evt) => {
   if (evt.target.matches(".item-btn")) {
     modal.classList.add("modal__open");
 
@@ -125,7 +125,7 @@ movieList.addEventListener("click", function (evt) {
     modal.querySelector(".modal__text").textContent = foundMovie.overview;
 
     // Modal close function
-    document.addEventListener("keyup", function (evt) {
+    document.addEventListener("keyup",  (evt) => {
       if (evt.keyCode === 27) {
         modal.classList.remove("modal__open");
       }
@@ -162,10 +162,10 @@ bookmarksArr.forEach((movie) => renderBookmarks(movie));
 bookmarksList.appendChild(bookmarksFragment);
 
 // Bookmark Modal
-bookmarkBtn.addEventListener("click", function () {
+bookmarkBtn.addEventListener("click", () =>{
   bookmarkModal.classList.add("modal__open");
 
-  bookmarkModal.addEventListener("click", function (evt) {
+  bookmarkModal.addEventListener("click", (evt) => {
     if (evt.target === bookmarkModal) {
       bookmarkModal.classList.remove("modal__open");
     }
@@ -173,7 +173,7 @@ bookmarkBtn.addEventListener("click", function () {
 });
 
 // Remove Bookmark
-bookmarksList.addEventListener("click", function (evt) {
+bookmarksList.addEventListener("click", (evt) => {
   if (evt.target.matches(".remove-btn")) {
     const foundIndex = bookmarksArr.findIndex(
       (item) => item.id === evt.target.dataset.id

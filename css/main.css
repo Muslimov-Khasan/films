@@ -1,10 +1,10 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
-body{
-    padding: 0;
-    margin: 0;
+body {
+  padding: 0;
+  margin: 0;
 }
 
 .movies__list-item {
@@ -14,6 +14,14 @@ body{
   position: relative;
   margin-left: 40px;
   padding-bottom: 15px;
+}
+
+.js-input {
+  margin-right: 20px;
+}
+
+.genres-select {
+  margin-right: 22px;
 }
 
 .movies__list-item-content {
@@ -149,11 +157,11 @@ body{
   justify-content: space-between;
 }
 
-.bookmarks__btn{
+.bookmarks__btn {
   margin-left: 900px;
 }
 
-.remove-btn{
+.remove-btn {
   width: 100px;
   border: none;
 }

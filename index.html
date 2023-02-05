@@ -1,75 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/main.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/main.css" />
     <title>Document</title>
-</head>
-<body>
-  <section class="movies">
-    <div class="container">
-      <div class="movie-wrapper">
-        <h1 class="movies__heading text-center">Films</h1>
-        <button type="submit" class="bookmarks__btn btn btn-danger">Bookmarks</button>
+  </head>
+  <body>
+    <section class="movies">
+      <div class="container">
+        <div class="movie-wrapper">
+          <h1 class="movies__heading text-center">Films</h1>
+          <button type="submit" class="bookmarks__btn btn btn-danger">
+            Bookmarks
+          </button>
+        </div>
+
+        <form class="js-form d-flex justify-content-start mb-3">
+          <select class="genres-select form-select w-25">
+            <option>All</option>
+          </select>
+          <input
+            class="js-input input-group w-25"
+            type="search"
+            placeholder="search..."
+          />
+
+          <button type="submit" class="form__btn btn btn-primary">
+            search
+          </button>
+        </form>
+
+        <ul
+          class="movies__list d-flex flex-wrap list-unstyled"
+          data-id="salom"
+        ></ul>
       </div>
+    </section>
 
-      <form class="js-form">
-        <select class="genres-select">
-          <option>All</option>
-        </select>
-        <input
-          class="js-input"
-          type="text"
-          placeholder="search..."
-        />
-
-        <button type="submit" class="form__btn">search</button>
-      </form>
-
-      <ul class="movies__list d-flex flex-wrap list-unstyled" data-id="salom"></ul>
-    </div>
-  </section>
-
-  <!-- Movie Info Modal -->
-  <div class="modal">
-    <div class="modal__content">
-      <h3 class="modal__title"></h3>
-      <p class="modal__text"></p>
-      <button class="modal__btn">&times;</button>
-    </div>
-  </div>
-
-  <!-- Movie Bookmark Modal -->
-  <div class="bookmark-modal">
-    <div class="bookmark-modal-content">
-      <h2>Bookmarks</h2>
-      <ul class="bookmark-list"></ul>
-    </div>
-  </div>
-
-  <template id="movie-template">
-    <li class="movies__list-item">
-      <img class="movie-img" src="" />
-      <div class="movies__list-item-content">
-        <h3 class="movie-title"></h3>
-        <ul class="genre-list"></ul>
-        <span class="movie-year"></span>
-        <button class="item-btn btn-primary">Info</button>
-        <button class="bookmark-btn btn-danger">Bookmark</button>
+    <!-- Movie Info Modal -->
+    <div class="modal">
+      <div class="modal__content">
+        <h3 class="modal__title"></h3>
+        <p class="modal__text"></p>
+        <button class="modal__btn">&times;</button>
       </div>
-    </li>
-  </template>
+    </div>
 
-  <template class="bookmark-template">
-    <li class="bookmark-item">
-          <h3 class="movie-name"></h3>
-          <button class="remove-btn btn-danger">Delete</button>
-        </li>
-  </template>
+    <!-- Movie Bookmark Modal -->
+    <div class="bookmark-modal">
+      <div class="bookmark-modal-content">
+        <h2>Bookmarks</h2>
+        <ul class="bookmark-list"></ul>
+      </div>
+    </div>
+
+    <template id="movie-template">
+      <li class="movies__list-item">
+        <img class="movie-img" src="" />
+        <div class="movies__list-item-content">
+          <h3 class="movie-title"></h3>
+          <ul class="genre-list"></ul>
+          <span class="movie-year"></span>
+          <button class="item-btn btn-primary">Info</button>
+          <button class="bookmark-btn btn-danger">Bookmark</button>
+        </div>
+      </li>
+    </template>
+
+    <template class="bookmark-template">
+      <li class="bookmark-item">
+        <h3 class="movie-name"></h3>
+        <button class="remove-btn btn-danger">Delete</button>
+      </li>
+    </template>
     <script src="./js/films.js"></script>
     <script src="./js/main.js"></script>
-</body>
+  </body>
 </html>
